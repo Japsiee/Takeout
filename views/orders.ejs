@@ -14,7 +14,7 @@
 			const successAlert = document.querySelector('#successAlert');
 			setTimeout(() => {
 				successAlert.style.display = 'none';
-				window.location.href = '/customers';
+				window.location.href = '/orders';
 			}, 15000)
 		</script>
 	<% } %>
@@ -29,7 +29,7 @@
 			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
 		<div class="offcanvas-body">
-			<form action="/customers" method="POST" accept-charset="utf-8" id="orders">
+			<form action="/orders" method="POST" accept-charset="utf-8" id="orders">
 				<div class="d-flex flex-column justify-content-center">
 					<label for="buyer">Name</label>					
 					<input type="text" class='px-3 py-2 border-0 border-bottom border-2 border-danger my-2' id='buyer' name="buyer" placeholder="(e.g) Kevin Ben">
@@ -71,7 +71,7 @@
 					<div class="card p-3">
 						<div class="card-body" data-food="Grilled Fish" data-price="245.00">
 							<h1 class="card-title">Grilled Fish</h1>
-							<img src="./img/banner.jpg" alt="food" class='img-fluid my-3'>
+							<img src="../img/banner.jpg" alt="food" class='img-fluid my-3'>
 							<p class="fs-1 text-center">P 245.00</p>
 							<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -89,7 +89,7 @@
 					<div class="card p-3">
 						<div class="card-body" data-food="Grilled Pork" data-price="600.00">
 							<h1 class="card-title">Grilled Pork</h1>
-							<img src="./img/banner.jpg" alt="food" class='img-fluid my-3'>
+							<img src="../img/banner.jpg" alt="food" class='img-fluid my-3'>
 							<p class="fs-1 text-center">P 600.00</p>
 							<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -118,13 +118,13 @@
 
 	addOrderBtn.forEach(btn => {
 		btn.addEventListener('click', e => {
+			const food = e.target.parentElement.parentElement.dataset.food;
+			const price = e.target.parentElement.parentElement.dataset.price;
 			let qty = e.target.parentElement.nextSibling.nextSibling.innerHTML;
 			let resetQty = e.target.parentElement.nextSibling.nextSibling;
 			const input1 = document.createElement('input');
 			const input2 = document.createElement('input');
 			const input3 = document.createElement('input');
-			const food = e.target.parentElement.parentElement.dataset.food;
-			const price = e.target.parentElement.parentElement.dataset.price;
 			const div1 = document.createElement('div');
 			const p1 = document.createElement('p');
 			const p2 = document.createElement('p');

@@ -1,9 +1,12 @@
 const { Router } = require('express');
 const Route = Router();
 
-const staffsController = require('../controllers/staffsController');
+const controller = require('../controllers/staffsController');
 
-Route.get('/staffs', staffsController.staffs_get);
-Route.post('/staffs', staffsController.staffs_post);
+Route.get('/staffs/signup', controller.staff_get_signup);
+Route.get('/staffs/login', controller.staff_get_login);
+
+Route.post('/staffs/signup', controller.staff_post_signup);
+Route.post('/staffs/login', controller.staff_post_login);
 
 module.exports = Route;

@@ -34,15 +34,13 @@ connection();
 // middle wares
 
 const rootRouter = require('./routes/rootRouter');
-const trackorderRouter = require('./routes/trackorderRouter');
-const customersRouter = require('./routes/customersRouter');
+const ordersRouter = require('./routes/ordersRouter');
 const staffsRouter = require('./routes/staffsRouter');
 
 // routes
 
 app.use(rootRouter);
-app.use(trackorderRouter);
-app.use(customersRouter);
+app.use(ordersRouter);
 app.use(staffsRouter);
 app.use((req,res) => {
 	res.status(404).render('404', { tabTitle: 'Page 404' });
