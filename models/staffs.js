@@ -5,19 +5,20 @@ const bcrypt = require('bcrypt');
 const staffSchema = new Schema({
 	username: {
 		type: String,
-		required: true,
+		required: [true, 'Please enter a username'],
+		minlength: [4, 'Minimum username length is 4 characters'],
 		unique: true
 	},
 	password: {
 		type: String,
-		required: true
+		required: [true, 'Please enter a password'],
+		minlength: [6, 'Minimum password length is 6 characters']
 	}
 }, { timestamps: true });
 
 staffSchema.pre('save', async function(next) {
 	const salt = await bcrypt.genSalt();
 	this.password = await bcrypt.hash(this.password, salt);
-	console.log('user will be created', this);
 	next();
 })
 
