@@ -56,19 +56,6 @@ module.exports.staff_post_signup = async (req, res) => {
 }
 
 module.exports.staff_post_login = (req, res) => {
-	// const { username, password } = req.body;
-	// try {
-	// 	const staff = await Staff.login(username, password);
-	// 	if (staff) {
-			// const token = await createToken(staff._id);
-			// res.cookie('webtoken', token, { httpOnly: true, maxAge: maxAge * 1000 });
-			// res.json(staff);
-	// 	}
-	// }
-	// catch(err) {
-	// 	res.json(err);
-	// }
-
 	const { username, password } = req.body;
 
 	const getData = async function() {
@@ -88,5 +75,9 @@ module.exports.staff_post_login = (req, res) => {
 	.catch(err => {
 		res.status(400).json(err.message);
 	})
+}
 
+module.exports.staff_post_logout = (req, res) => {
+	res.cookie('webtoken', '', { maxAge: 1 });
+	res.redirect('/');
 }
