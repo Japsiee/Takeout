@@ -3,7 +3,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const cookieParser = require('cookie-parser');
-const { requireAuth } = require('./middleware/authMiddleware');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -39,15 +38,14 @@ connection();
 const rootRouter = require('./routes/rootRouter');
 const ordersRouter = require('./routes/ordersRouter');
 const staffsRouter = require('./routes/staffsRouter');
+const panelRouter = require('./routes/panelRouter');
 
 // routes
 
 app.use(rootRouter);
 app.use(ordersRouter);
 app.use(staffsRouter);
-app.get('/panel', requireAuth , (req, res) => {
-	res.render('panel', { tabTitle: 'Panel' });
-})
+app.use(panelRouter);
 app.use((req,res) => {
 	res.status(404).render('404', { tabTitle: 'Page 404' });
 })
