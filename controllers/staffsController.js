@@ -56,5 +56,37 @@ module.exports.staff_post_signup = async (req, res) => {
 }
 
 module.exports.staff_post_login = (req, res) => {
-	
+	// const { username, password } = req.body;
+	// try {
+	// 	const staff = await Staff.login(username, password);
+	// 	if (staff) {
+			// const token = await createToken(staff._id);
+			// res.cookie('webtoken', token, { httpOnly: true, maxAge: maxAge * 1000 });
+			// res.json(staff);
+	// 	}
+	// }
+	// catch(err) {
+	// 	res.json(err);
+	// }
+
+	const { username, password } = req.body;
+
+	const getData = async function() {
+		const staff = await Staff.login(username, password)
+		return staff;
+	}
+
+	getData()
+
+	.then(data => {
+		const token = createToken(data._id);
+		res.cookie('webtoken', token, { httpOnly: true, maxAge: maxAge * 1000 });
+		const dataBack = { _id: data._id, username };
+		res.json(dataBack);
+	})
+
+	.catch(err => {
+		res.status(400).json(err.message);
+	})
+
 }

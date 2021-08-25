@@ -22,6 +22,30 @@ staffSchema.pre('save', async function(next) {
 	next();
 })
 
+staffSchema.statics.login = async function(username, password) {
+	// const staff = await this.findOne({ username })
+	// if (staff) {
+		// const auth = await bcrypt.compare(password, staff.password);
+		// if (auth) {
+		// 	return staff;
+		// }
+	// 	throw new Error("Incorrect Password");
+	// }
+	// throw new Error("Incorrect Username");
+
+	const staff = await this.findOne({ username })
+	if (staff) {
+		const auth = await bcrypt.compare(password, staff.password);
+		if (auth) {
+			return staff;
+		} else {
+			throw new Error("Incorrect username or password");	
+		}
+	} else {
+		throw new Error("Username doesn't exist");
+	}
+}
+
 const Staff = mongoose.model('staff', staffSchema);
 
 module.exports = Staff;
