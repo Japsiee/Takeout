@@ -46,7 +46,7 @@ app.use(rootRouter);
 app.use(ordersRouter);
 app.use(staffsRouter);
 app.get('/panel', requireAuth , (req, res) => {
-	res.render('panel');
+	res.render('panel', { tabTitle: 'Panel' });
 })
 app.use((req,res) => {
 	res.status(404).render('404', { tabTitle: 'Page 404' });
