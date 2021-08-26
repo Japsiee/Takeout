@@ -41,7 +41,12 @@ const staffsRouter = require('./routes/staffsRouter');
 const panelRouter = require('./routes/panelRouter');
 
 // routes
-
+app.get('/rights', (req,res) => {
+	res.render('rights', { tabTitle: 'Customers Rights' });
+})
+app.get('/contact', (req,res) => {
+	res.render('contact', { tabTitle: 'Contact' });
+})
 app.use(rootRouter);
 app.use(ordersRouter);
 app.use(staffsRouter);
