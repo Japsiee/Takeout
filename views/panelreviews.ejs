@@ -3,49 +3,57 @@
 <%- include('./partials/head.ejs') %>
 <body>
 	<%- include('./partials/panelnav.ejs') %>
+
+	<!-- DELETE REVIEW MODAL CONFIRM -->
+
+
+<!-- Modal -->
+
+
+
 	<section id="reviews" class="py-2 px-md-5">
 		<div class="container-fluid m-0 p-0" style="min-height: 80vh">
 
-			<dl class="row bg-dark m-0 my-1 p-4 text-white">
-				<dt class="col-sm-3">From</dt>
-				<dd class="col-sm-9">
-					Japs
-				</dd>
-				<dt class="col-sm-3">Message</dt>
-				<dd class="col-sm-9">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</dd>
-				<div class="d-flex justify-content-end">
-					<button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-				</div>
-			</dl>
+			<% reviews.forEach(review => { %>
+				<dl class="row bg-dark m-0 my-1 p-4 text-white">
+					<dt class="col-sm-3">From</dt>
+					<dd class="col-sm-9">
+						<%= review.name %>
+					</dd>
+					<dt class="col-sm-3">Message</dt>
+					<dd class="col-sm-9">
+						<p><%= review.body %></p>
+					</dd>
+					<div class="d-flex justify-content-end">
+						<form action="/panel/reviews/<%= review._id %>" method="POST" accept-charset="utf-8" id="deleteReviewForm">
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"><i class="bi bi-trash fs-4"></i></button>
 
-			<dl class="row bg-dark m-0 my-1 p-4 text-white">
-				<dt class="col-sm-3">From</dt>
-				<dd class="col-sm-9">
-					Japs
-				</dd>
-				<dt class="col-sm-3">Message</dt>
-				<dd class="col-sm-9">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</dd>
-				<div class="d-flex justify-content-end">
-					<button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-				</div>
-			</dl>
+							<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+							  <div class="modal-dialog modal-dialog-centered">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title text-dark" id="staticBackdropLabel1">Are you sure you want to delete this review?</h5>
+							        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							        <button type="submit" class="btn btn-danger" id="deleteReviewBtn">Confirm</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>								
+
+
+						</form>
+					</div>
+				</dl>
+			<% }) %>
 
 		</div>
 	</section>
 <%- include('./partials/footer.ejs') %>
+<script>
+
+</script>
 </body>
 </html>
