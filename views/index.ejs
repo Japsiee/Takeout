@@ -3,7 +3,7 @@
 <%- include('./partials/head.ejs') %>
 <body>
 	<%- include('./partials/navbar.ejs') %>
-	<section class='py-5' id="banner">
+	<section class='py-5 position-relative' id="banner">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 px-5">
@@ -20,8 +20,8 @@
 						<p class='fs-1 text-white'>AdSpace</p>
 					</div>
 				</div>
-				<div class="col-md-6 my-3 p-3">
-					<h4 class="display-4 bg-dark p-3 text-light fw-bold position-sticky top-0 text-center">Satisfy your Craveness</h4>
+				<div class="col-md-6 mt-3 p-3">
+					<h4 class="display-4 text-dark p-3 bg-dark text-white fw-bold text-center">Satisfy your Craveness</h4>
 					<img src="./img/banner.jpg" alt="BANNER IMAGE" class='img-fluid'>
 					<p class="lead fw-normal py-3 text-wrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -34,19 +34,16 @@
 		</div>
 	</section>
 
-	<hr class="my-5">
-
-	<section id="cook">
+	<section id="cook" class="position-relative">
+		<h1 class="display-4 text-center p-0 py-5 text-dark fw-bold">Highlights</h1>
 		<div class="container-fluid d-flex flex-column justify-content-center align-items-center p-0 p-lg-5">
-			<h1 class="display-4 text-center p-0 pb-5">Highlights</h1>
-			<iframe class="w-75 h-75" style="min-height: 60vh;" src="https://www.youtube.com/embed/y7OYm-BeOF0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe class="w-75 h-75" style="min-height: 60vh;" src="https://www.youtube.com/embed/Hxu24cldyRw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 	</section>
 
-	<h3 class="text-center display-3 bg-dark text-white p-3 position-sticky top-0 my-5">Meet the Whole Team</h3>
-
-	<section id="team">
+	<section id="team" class="position-relative">
 		<div class="row m-0 d-flex justify-content-center">
+			<h1 class="display-4 text-center p-0 py-5 text-dark fw-bold">Meet the Whole Team</h1>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 px-5 text-center">
 				<img src="./img/chef.jpg" alt="Head Cook Image" class='img-fluid'>
 				<h5 class="display-6 pt-3">Balmond Phoveus</h5>
@@ -74,10 +71,10 @@
 		</div>
 	</section>
 
-	<h3 class="text-center display-3 bg-white p-3 position-sticky top-0">About Us & Reviews</h3>
 
-	<section id="about">
-		<div class="container-fluid bg-dark p-5 my-3">
+	<section id="about" class="position-relative">
+		<h1 class="display-4 text-center m-0 p-0 py-5 bg-dark text-white fw-bold">About us</h1>
+		<div class="container-fluid bg-dark p-5 my-0">
 			<p class='text-white fs-3'>Consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
