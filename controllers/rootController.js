@@ -13,7 +13,7 @@ module.exports.root_post = (req,res) => {
 	})
 
 	.catch(err => {
-		console.log('Posting Review Failed', err);
+		console.log('Posting Review Failed | Empty Input');
 		res.redirect('/');
 	})
 }
