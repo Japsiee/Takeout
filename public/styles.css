@@ -65,3 +65,22 @@
 	color: red !important;
 }
 
+.scrollTop {
+	position: fixed;
+	bottom: 10px;
+	left: 0px;
+	opacity: 0;
+	visibility: hidden;
+	font-size: 5vmax;
+	z-index: 100;
+	cursor: pointer;
+	transition-duration: .5s;
+}
+
+.scrollShow {
+	transition-duration: .5s;
+	bottom: 10px;
+	left: 20px;
+	opacity: 1;
+	visibility: visible;
+}
