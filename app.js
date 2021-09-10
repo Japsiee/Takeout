@@ -42,7 +42,7 @@ const panelRouter = require('./routes/panelRouter');
 
 // routes
 app.get('/rights', (req,res) => {
-	res.render('rights', { tabTitle: 'Customers Rights' });
+	res.render("rights", { tabTitle: 'Customers Rights' });
 })
 app.get('/contact', (req,res) => {
 	res.render('contact', { tabTitle: 'Contact' });
@@ -54,4 +54,3 @@ app.use(panelRouter);
 app.use((req,res) => {
 	res.status(404).render('404', { tabTitle: 'Page 404' });
 })
-
